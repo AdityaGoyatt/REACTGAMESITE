@@ -1,19 +1,31 @@
-import { Flex, Center, Text, Square, Box } from "@chakra-ui/react";
-const NavBAr = () => {
+import {
+  Flex,
+  Spacer,
+  Box,
+  Heading,
+  FormControl,
+  FormLabel,
+  Switch,
+} from "@chakra-ui/react";
+
+interface Props {
+  clickLogic: () => void;
+}
+const NavBAr = ({ clickLogic }: Props) => {
   return (
-    <div>
-      <Flex color="white">
-        <Center w="100px" bg="green.500">
-          <Text>Box 1</Text>
-        </Center>
-        <Square bg="blue.500" size="150px">
-          <Text>Box 2</Text>
-        </Square>
-        <Box flex="1" bg="tomato">
-          <Text>Box 3</Text>
-        </Box>
-      </Flex>
-    </div>
+    <Flex m={3} minWidth="max-content" alignItems="center" gap="2">
+      <Box p="2">
+        <Heading size="md">Chakra App</Heading>
+      </Box>
+      <Spacer />
+      <FormControl display="flex" alignItems="center">
+        <Spacer />
+        <FormLabel htmlFor="dark-mode" mb="0">
+          dark mode
+        </FormLabel>
+        <Switch onClick={clickLogic} id="dark-mode" />
+      </FormControl>
+    </Flex>
   );
 };
 
