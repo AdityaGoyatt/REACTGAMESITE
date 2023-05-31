@@ -1,14 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import NavBAr from "./Components/NavBar";
-import { ChakraBaseProvider } from "@chakra-ui/react";
-function App() {
-  const [count, setCount] = useState(0);
+import { useEffect, useState } from "react";
 
+import { ChakraProvider } from "@chakra-ui/react";
+
+import dataService, { game, games } from "./Components/gameApi";
+
+import NavBAr from "./Components/NavBar";
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div>
-      <NavBAr />
-    </div>
+    <ChakraProvider>
+      <NavBAr clickLogic={() => console.log("aaa")} />
+    </ChakraProvider>
   );
 }
 
