@@ -15,7 +15,7 @@ function App() {
           "aside main"`,
       }}
     >
-      <GridItem pl="2" bg="white" area={"Nav"}>
+      <GridItem pl="2" area={"Nav"}>
         <NavBAr clickLogic={() => console.log("aaa")} />
       </GridItem>
       <Show above="lg">
