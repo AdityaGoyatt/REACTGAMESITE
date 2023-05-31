@@ -12,37 +12,19 @@ import {
 } from "@chakra-ui/react";
 
 import logo from "./images/logo.svg";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 interface Props {
   clickLogic: () => void;
 }
 const NavBAr = ({ clickLogic }: Props) => {
   return (
-    <HStack>
+    <HStack p={2} justifyContent="space-between">
       <Image src={logo} boxSize="60px"></Image>
-      <Spacer />
-      <FormLabel htmlFor="dark-mode" mb="0">
-        <Text>
-          Dark Mode
-          <Switch onClick={clickLogic} id="dark-mode" />
-        </Text>
-      </FormLabel>
+
+      <ColorModeSwitch />
     </HStack>
   );
 };
 
 export default NavBAr;
-
-// <Flex m={2} minWidth="max-content" alignItems="center" gap="2">
-//   <Heading size="md">Chakra App</Heading>
-//   <Spacer />
-//   <FormControl display="flex" alignItems="center">
-//     <Spacer />
-//     <FormLabel htmlFor="dark-mode" mb="0">
-//       <Heading size="md" color="tomato">
-//         Dark Mode
-//       </Heading>
-//     </FormLabel>
-//     <Switch onClick={clickLogic} id="dark-mode" />
-//   </FormControl>
-// </Flex>
