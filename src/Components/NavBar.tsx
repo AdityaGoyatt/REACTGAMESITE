@@ -14,10 +14,8 @@ import {
 import logo from "./images/logo.svg";
 import ColorModeSwitch from "./ColorModeSwitch";
 
-interface Props {
-  clickLogic: () => void;
-}
-const NavBAr = ({ clickLogic }: Props) => {
+interface Props {}
+const NavBAr = () => {
   return (
     <HStack p={2} justifyContent="space-between">
       <Image src={logo} boxSize="60px"></Image>
