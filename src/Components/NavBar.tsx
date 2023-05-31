@@ -13,15 +13,15 @@ interface Props {
 }
 const NavBAr = ({ clickLogic }: Props) => {
   return (
-    <Flex m={3} minWidth="max-content" alignItems="center" gap="2">
-      <Box p="2">
-        <Heading size="md">Chakra App</Heading>
-      </Box>
+    <Flex m={2} minWidth="max-content" alignItems="center" gap="2">
+      <Heading size="md">Chakra App</Heading>
       <Spacer />
       <FormControl display="flex" alignItems="center">
         <Spacer />
         <FormLabel htmlFor="dark-mode" mb="0">
-          dark mode
+          <Heading size="md" color="tomato">
+            Dark Mode
+          </Heading>
         </FormLabel>
         <Switch onClick={clickLogic} id="dark-mode" />
       </FormControl>

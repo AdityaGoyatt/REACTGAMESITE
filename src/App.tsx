@@ -1,17 +1,33 @@
 import { useEffect, useState } from "react";
 
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Wrap, Show } from "@chakra-ui/react";
 
-import dataService, { game, games } from "./Components/gameApi";
+import dataService, { game, games } from "./Components/GameApi";
 
 import NavBAr from "./Components/NavBar";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
   return (
-    <ChakraProvider>
-      <NavBAr clickLogic={() => console.log("aaa")} />
-    </ChakraProvider>
+    <Grid
+      templateAreas={{
+        base: `"Nav" "main"`,
+        lg: `"Nav Nav"
+          "aside main"`,
+      }}
+    >
+      <GridItem pl="2" bg="white" area={"Nav"}>
+        <NavBAr clickLogic={() => console.log("aaa")} />
+      </GridItem>
+      <Show above="lg">
+        <GridItem pl="2" bg="pink.300" area={"aside"}>
+          Aside
+        </GridItem>
+      </Show>
+
+      <GridItem pl="2" bg="green.300" area={"main"}>
+        Main
+      </GridItem>
+    </Grid>
   );
 }
 
