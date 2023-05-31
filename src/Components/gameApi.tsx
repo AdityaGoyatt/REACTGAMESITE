@@ -1,4 +1,4 @@
-import apiClient from "./apiClient";
+import apiClient from "../../../apiCLient";
 
 class dataService {
   endpoint: string;
