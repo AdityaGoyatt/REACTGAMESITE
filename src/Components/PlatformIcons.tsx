@@ -1,6 +1,6 @@
 import { game, Platform } from "../hooks/useGames";
 import useGames from "../hooks/useGames";
-import { Icon } from "@chakra-ui/react";
+import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import {
   FaXbox,
@@ -30,14 +30,12 @@ const PlatformIcons = ({ platforms }: Props) => {
     android: FaAndroid,
   };
 
-  console.log(platforms);
-
   return (
-    <>
+    <HStack marginY="10px">
       {platforms.map((platform) => (
         <Icon mr="5px" as={iconMap[platform.slug]} color="gray.500" />
       ))}
-    </>
+    </HStack>
   );
 };
 
