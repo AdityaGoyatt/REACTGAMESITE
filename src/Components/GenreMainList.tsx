@@ -1,15 +1,20 @@
 import React from "react";
-import useGenre from "../hooks/useGenre";
+import useHttp from "../hooks/useHttp";
+interface genre {
+  id: number;
+  name: string;
+  slug: string;
+}
 
 const GenreMainList = () => {
-  const { genreList, error, loading } = useGenre();
+  const { dataList, error, loading } = useHttp<genre>("/genres");
+
   return (
-    <div>
-      {genreList.map((data) => (
+    <>
+      {dataList.map((data) => (
         <li>{data.name}</li>
       ))}
-    </div>
+    </>
   );
 };
-
 export default GenreMainList;
