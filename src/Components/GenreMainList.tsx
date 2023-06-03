@@ -19,9 +19,10 @@ import getCropedImageUrl from "./services/image-url";
 
 interface Props {
   handleClick: (genre: genre) => void;
+  selectGenre: genre | null;
 }
 
-const GenreMainList = ({ handleClick }: Props) => {
+const GenreMainList = ({ handleClick, selectGenre }: Props) => {
   const { dataList, error, loading } = useGenre();
   const arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -42,6 +43,7 @@ const GenreMainList = ({ handleClick }: Props) => {
               borderRadius="4px"
             ></Image>
             <Button
+              fontWeight={data === selectGenre ? "bold" : "normal"}
               colorScheme="white"
               variant="link"
               onClick={() => handleClick(data)}
