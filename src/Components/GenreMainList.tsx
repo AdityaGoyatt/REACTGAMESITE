@@ -1,13 +1,9 @@
 import React from "react";
 import useHttp from "../hooks/useHttp";
-interface genre {
-  id: number;
-  name: string;
-  slug: string;
-}
+import useGenre from "../hooks/useGenre";
 
 const GenreMainList = () => {
-  const { dataList, error, loading } = useHttp<genre>("/genres");
+  const { dataList, error, loading } = useGenre();
 
   return (
     <>
