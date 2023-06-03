@@ -1,14 +1,55 @@
 import React from "react";
 import useHttp from "../hooks/useHttp";
-import useGenre from "../hooks/useGenre";
+import useGenre, { genre } from "../hooks/useGenre";
+import {
+  List,
+  HStack,
+  Text,
+  Image,
+  Heading,
+  Box,
+  Link,
+  Spinner,
+  Skeleton,
+  SkeletonText,
+  Button,
+  LinkBox,
+} from "@chakra-ui/react";
+import getCropedImageUrl from "./services/image-url";
 
-const GenreMainList = () => {
+interface Props {
+  handleClick: (genre: genre) => void;
+}
+
+const GenreMainList = ({ handleClick }: Props) => {
   const { dataList, error, loading } = useGenre();
+  const arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <>
+      <Heading pb="8px">Genre</Heading>
+
+      {loading &&
+        arry.map((data) => (
+          <Skeleton key={data * 100} height="40px" marginBottom={5}></Skeleton>
+        ))}
       {dataList.map((data) => (
-        <li>{data.name}</li>
+        <List key={data.id}>
+          <HStack pb="5px" borderRadius="4px">
+            <Image
+              src={getCropedImageUrl(data.image_background)}
+              boxSize="40px"
+              borderRadius="4px"
+            ></Image>
+            <Button
+              colorScheme="white"
+              variant="link"
+              onClick={() => handleClick(data)}
+            >
+              {data.name}
+            </Button>
+          </HStack>
+        </List>
       ))}
     </>
   );

@@ -11,4 +11,5 @@ export interface genre {
 }
 
 const useGenre = () => useHttp<genre>("/genres");
+
 export default useGenre;

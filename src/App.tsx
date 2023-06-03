@@ -5,7 +5,11 @@ import GameGrid from "./Components/GameGrid";
 
 import NavBAr from "./Components/NavBar";
 import GenreMainList from "./Components/GenreMainList";
+import { genre } from "./hooks/useGenre";
+
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<genre | null>(null);
+
   return (
     <Grid
       templateAreas={{
@@ -13,18 +17,22 @@ function App() {
         lg: `"Nav Nav"
           "aside main"`,
       }}
+      templateColumns={{
+        base: "1fr",
+        lg: "200px 1fr",
+      }}
     >
       <GridItem p="2" area="Nav">
         <NavBAr />
       </GridItem>
       <Show above="lg">
-        <GridItem p="2" area="aside">
-          <GenreMainList />
+        <GridItem p="2" area="aside" paddingX={5}>
+          <GenreMainList handleClick={(genre) => setSelectedGenre(genre)} />
         </GridItem>
       </Show>
 
       <GridItem p="2" area="main">
-        <GameGrid />
+        <GameGrid mainGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );
