@@ -13,9 +13,7 @@ const PlatformSelector = ({ handleClick, selectedCurrentPlatform }: Props) => {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedCurrentPlatform !== null
-          ? selectedCurrentPlatform.name
-          : "Platforms"}
+        {selectedCurrentPlatform?.name || "Platform"}
       </MenuButton>
       <MenuList>
         {dataList.map((platform) => (

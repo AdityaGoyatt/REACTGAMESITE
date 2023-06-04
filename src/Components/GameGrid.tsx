@@ -4,14 +4,14 @@ import GameCard from "./GameCard";
 import Skeletons from "./Skeletons";
 import { genre } from "../hooks/useGenre";
 import { PlatformListItem } from "../hooks/usePlatforms";
+import { gameQuery } from "../App";
 
 interface Props {
-  mainGenre: genre | null;
-  selectedPlatform: PlatformListItem | null;
+  gameQuery: gameQuery;
 }
 
-const GameGrid = ({ mainGenre, selectedPlatform }: Props) => {
-  const { dataList, error, loading } = useGames(mainGenre, selectedPlatform);
+const GameGrid = ({ gameQuery }: Props) => {
+  const { dataList, error, loading } = useGames(gameQuery);
   const skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (

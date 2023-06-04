@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import useHttp from "./useHttp";
 import { genre } from "./useGenre";
 import { PlatformListItem } from "./usePlatforms";
+import { gameQuery } from "../App";
 
 export interface Platform {
   id: number;
@@ -20,19 +21,16 @@ export interface game {
   genres: Array<genre>;
 }
 
-const useGames = (
-  selectedGenre: genre | null,
-  selectedPlatform: PlatformListItem | null
-) =>
+const useGames = (gameQuery: gameQuery) =>
   useHttp<game>(
     "/games",
     {
       params: {
-        genres: selectedGenre?.id,
-        parent_platforms: selectedPlatform?.id,
+        genres: gameQuery.genre?.id,
+        parent_platforms: gameQuery.platform?.id,
       },
     },
-    [selectedGenre?.id, selectedPlatform?.id]
+    [gameQuery.genre?.id, gameQuery.platform?.id]
   );
 
 export default useGames;
