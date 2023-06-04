@@ -13,7 +13,7 @@ const useHttp = <T>(
   deps?: any[]
 ) => {
   const uniquePoint = endPoint;
-  const [dataList, setGameList] = useState<T[]>([]);
+  const [dataList, setDataList] = useState<T[]>([]);
   const [error, setError] = useState("");
 
   const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ const useHttp = <T>(
           ...requestConfig,
         })
         .then((res) => {
-          setGameList([...res.data.results]);
+          setDataList([...res.data.results]);
           setLoading(false);
         })
         .catch((error) => {
