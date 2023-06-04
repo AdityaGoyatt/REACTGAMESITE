@@ -1,9 +1,11 @@
 import useHttp from "./useHttp";
 
-interface Platform {
+export interface PlatformListItem {
   id: number;
   name: string;
+  slug: string;
 }
-const usePlatforms = () => useHttp<Platform>("/platforms/lists/parents");
+const usePlatforms = () =>
+  useHttp<PlatformListItem>("/platforms/lists/parents");
 
 export default usePlatforms;
