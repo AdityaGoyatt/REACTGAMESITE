@@ -41,8 +41,11 @@ const GenreMainList = ({ handleClick, selectGenre }: Props) => {
               src={getCropedImageUrl(data.image_background)}
               boxSize="40px"
               borderRadius="4px"
+              objectFit="cover"
             ></Image>
             <Button
+              whiteSpace="normal"
+              textAlign="left"
               fontWeight={data === selectGenre ? "bold" : "normal"}
               colorScheme="white"
               variant="link"

@@ -6,6 +6,7 @@ import PlatformIcons from "./PlatformIcons";
 import CriticScore from "./CriticScore";
 import getCropedImageUrl from "./services/image-url";
 import CardLayout from "./CardLayout";
+import Emojis from "./Emojis";
 
 interface Props {
   gameObject: game;
@@ -20,13 +21,16 @@ const GameCard = ({ gameObject }: Props) => {
           borderRadius="sm"
         />
         <CardBody>
-          <Heading fontSize="2xl">{gameObject.name}</Heading>
-          <HStack justifyContent="space-between">
+          <HStack justifyContent="space-between" pb="10px">
             <PlatformIcons
               platforms={gameObject.parent_platforms.map((p) => p.platform)}
             />
             <CriticScore score={gameObject.metacritic} />
           </HStack>
+          <Heading fontSize="2xl">
+            {gameObject.name}
+            <Emojis rating={gameObject.rating_top}></Emojis>
+          </Heading>
         </CardBody>
       </Card>
     </CardLayout>
