@@ -2,6 +2,7 @@ import { CanceledError } from "axios";
 import apiClient from "../../../apiCLient";
 import { useEffect, useState } from "react";
 import useHttp from "./useHttp";
+import genreData from "./genreData";
 
 export interface genre {
   id: number;
@@ -10,6 +11,6 @@ export interface genre {
   image_background: string;
 }
 
-const useGenre = () => useHttp<genre>("/genres");
+const useGenre = () => ({ dataList: genreData, loading: false, error: null });
 
 export default useGenre;

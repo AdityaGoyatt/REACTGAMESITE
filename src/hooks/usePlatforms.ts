@@ -1,3 +1,4 @@
+import platformsData from "./platformsData";
 import useHttp from "./useHttp";
 
 export interface PlatformListItem {
@@ -5,7 +6,10 @@ export interface PlatformListItem {
   name: string;
   slug: string;
 }
-const usePlatforms = () =>
-  useHttp<PlatformListItem>("/platforms/lists/parents");
+const usePlatforms = () => ({
+  dataList: platformsData,
+  loading: false,
+  error: null,
+});
 
 export default usePlatforms;
