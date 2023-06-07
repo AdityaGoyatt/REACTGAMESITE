@@ -1,5 +1,5 @@
 import { AxiosRequestConfig, CanceledError } from "axios";
-import apiClient from "../../../apiCLient";
+import apiClient from "./apiClient";
 import { useEffect, useState } from "react";
 
 export interface DataResult<T> {
